@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Glass Desk — Transparent Document Q&A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="mast-left">
+      <h1>Glass<span>Desk</span></h1>
+      <p class="tag">Every exchange visible — nothing hidden in the pane</p>
+    </div>
+    <div class="mast-right">
+      <span class="live-dot"></span>
+      <span class="live-label">reasoning shown live</span>
+    </div>
+  </header>
+
+  <section class="panel" aria-labelledby="h-docs">
+    <h2 id="h-docs"><span class="step">Documents</span></h2>
+
+    <div class="uploadRow">
+      <label class="fileBtn" for="pdfInput">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 21h14"/></svg>
+        Upload file
+      </label>
+      <input type="file" id="pdfInput"/>
+      <select id="docSelect"><option value="">— select a document —</option></select>
+    </div>
+
+    <div class="progress" id="progress"></div>
+    <div class="docList" id="docList"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="h-ask">
+    <h2 id="h-ask"><span class="step">Ask</span></h2>
+    <div class="askRow">
+      <textarea id="qInput" placeholder="Ask a question about the selected document…"></textarea>
+      <button class="ask" id="askBtn">Ask</button>
+    </div>
+  </section>
+
+  <section class="panel panel-feed" aria-labelledby="h-feed">
+    <h2 id="h-feed"><span class="step">Live AI ↔ Code exchange</span></h2>
+    <div class="feed" id="feed">
+      <div class="empty">Nothing yet. Upload a file, select it, and ask a question — every step the AI takes will stream in here as it happens.</div>
+    </div>
+  </section>
+
+  <p class="footnote">
+    Any file is parsed once on upload. For PDFs longer than a few pages, the model first skims every page to detect chapter boundaries on its own, then text is split into chunks per chapter, embedded, and stored in SQL Server (large files process in the background; the progress line above shows real status, not a spinner). The full document is never sent to the model when answering — it can only request a chapter overview, a chapter's chunk index, a specific chunk by id, a keyword search, or a FAISS semantic search, and each request/response above is the complete context exchange. The loop stops the instant the AI answers.
+  </p>
+
+</div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
