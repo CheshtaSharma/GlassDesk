@@ -399,41 +399,31 @@ http://localhost:5000
 
 Upload and process documents with automatic chapter detection and chunk generation.
 
-![Upload](screenshots/upload.png)
+![Upload](Screenshots/upload.png)
 
 ## 📚 Document Management
 
 View and manage uploaded documents.
 
-![Documents](screenshots/documents.png)
+![Documents](Screenshots/documents.png)
 
 ## ❓ Asking Questions
 
 Ask natural language questions about uploaded documents.
 
-![Question](screenshots/question.png)
+![Question](Screenshots/question.png)
 
 ## 🧠 Transparent AI Reasoning
 
 Every retrieval step is streamed live so users can observe how the answer is generated.
 
-![Reasoning](screenshots/reasoning.png)
+![Reasoning](Screenshots/reasoning.png)
 
 ## ✅ Final Answer
 
 Grounded responses generated only from retrieved document chunks.
 
-![Answer](screenshots/answer.png)
-
-
----
-
-
-# 🎥 Demo
-
-A complete walkthrough of GlassDesk, including document upload, intelligent retrieval, live reasoning, and grounded response generation.
-
-> ** A demo video will be added soon.**
+![Answer](Screenshots/answer.png)
 
 
 ---
