@@ -393,7 +393,7 @@ http://localhost:5000
 
 ## 🏠 Home Page
 
-![Home](screenshots/home.png)
+![Home](Screenshots/home.png)
 
 ## 📄 Document Upload
 
